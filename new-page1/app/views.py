@@ -28,8 +28,6 @@ def indexapp():
 								 'leve':'S2',
 								 'giftDC':'小米无人机,探索触手可及的新视角',
 								 'abled':2}]}
-	l=len(pageData['winterGift'])
-	print l
 
 	return render_template("indexapp.html",pageData = pageData)
 
@@ -40,12 +38,14 @@ def indexdet():
 def S2ward():
 
 	form = SubmitForm()
-	flash(form.is_submitted())
+
 	if form.is_submitted():
-		#user = User()
-		#user.info['name'] = request.form.get('name',type=str,default=None)
-		#user.info['tel'] = request.form.get('tel',type=str,default=None)
-		projinfo=[]
+		user = User()
+		user.info['name'] = request.form.get('name',type=str,default=None)
+		user.info['tel'] = request.form.get('tel',type=str,default=None)
+		user.info['oidname'] = request.form.get('oidname',type=str,default=None)
+		user.info['add'] = request.form.get('add',type=str,default=None)
+		print user.info
 		return render_template('/result.html')
 	#user = User()
 	#user.info['name'] = request.form.get('name',type=str,default=None)
