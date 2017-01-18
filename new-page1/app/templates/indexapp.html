@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>经纪人会员制</title>
+    <meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <link href="{{url_for('static',filename='css/agent.css')}}" rel="stylesheet">
+</head>
+<body class="b_e8e9ea">
+    <header class="m-top">
+        <div class="m-top-con b_fff">
+            <p class="m-top-txt">专属礼品页</p>
+            <span class="m-top-icon1"></span>
+            <span class="m-top-icon2"></span>
+        </div>
+        <div class="m-top-banner">
+            <p class="m-top-tit1 pt9">尊敬的<span class="m-top-tag">{{pageData.agentLeve}}</span>用户</p>
+            <div class="m-top_xian"></div>
+            <p>您名下的客户持仓总额为<span class="c_fff000">{{pageData.position}}</span>元</p>
+            <p>我们为您准备了一份好礼 快来领取吧</p>
+        </div>
+    </header>
+    {%if pageData.winterGift.length !=0 %}
+    <div class="m-con">
+        <div class="m-agent m-agent1">
+            <div class="g-con pt12">
+                <ul class="list clearfix">
+                    <li class="list-one"></li>
+                    <li class="list-two"><i class="icon1"></i><span>冬日好礼</span></li>
+                    <li class="list-one"></li>
+                </ul>
+            </div>
+        </div>
+        {%for item in pageData.winterGift %}
+         <div class="g-img">
+            <img src="{{item.img}}" alt="" />
+            <div class="g-btn">
+                <span class="b_ec5151">{{item.leve}}专享</span>
+            </div>
+        </div>
+        <div class="m-agent b_fff">
+            <div class="g-con">
+                <div class="g-agent-con">
+                    <p class="c_222222">{{item.giftDC}}</p>
+                    <p class="c_aaaaaa">*限{{item.leve}}及以上用户领取</p>
+                    <div class="m-agent-bn">
+
+
+                        {%if item.abled == 0%}
+                        <a  class="b_cccccc">限{{item.leve}}用户</a>
+                        {%elif item.abled == 1%}
+                        <a href="{{url_for("S2ward")}}" class="b_588bff">立即领取</a>
+                        {%else%}
+                        <a  class="b_cccccc">已领取</a>
+                        {%endif%}
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+    {%endif%}
+
+    {%if pageData.winterGift.length !=0 %}
+    <div class="m-con">
+        <div class="m-agent m-agent1">
+            <div class="g-con pt12">
+                <ul class="list clearfix">
+                    <li class="list-one"></li>
+                    <li class="list-two"><i class="icon2"></i><span>生日好礼</span></li>
+                    <li class="list-one"></li>
+                </ul>
+            </div>
+        </div>
+        {%for item in pageData.birthdayGift %}
+         <div class="g-img">
+            <img src="{{item.img}}" alt="" />
+            <div class="g-btn">
+                <span class="b_ec5151">{{item.leve}}专享</span>
+            </div>
+        </div>
+        <div class="m-agent b_fff">
+            <div class="g-con">
+                <div class="g-agent-con">
+                    <p class="c_222222">{{item.giftDC}}</p>
+                    <p class="c_aaaaaa">*限{{item.leve}}及以上用户领取</p>
+                    <div class="m-agent-bn">
+                        {%if item.abled == 0%}
+                        <a  class="b_cccccc">限生日当月</a>
+                        {%elif item.abled == 1%}
+                        <a href="{{url_for("S2ward")}}" class="b_588bff">立即领取</a>
+                        {%else%}
+                        <a  class="b_cccccc">已领取</a>
+                        {%endif%}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+    {%endif%}
+    <div class="m-con m-bg">
+        <div class="m-agent">
+            <div class="g-con pt12">
+                <ul class="list clearfix">
+                    <li class="list-one"></li>
+                    <li class="list-two"><i class="icon3"></i><span>等级划分</span></li>
+                    <li class="list-one"></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="dengji"></div>
+        <div class="m-agent pt10">
+            <div class="g-con pt12">
+                <ul class="list clearfix">
+                    <li class="list-one"></li>
+                    <li class="list-two"><i class="icon4"></i><span>规则说明</span></li>
+                    <li class="list-one"></li>
+                </ul>
+                <div class="rule">
+                    <p>1.用户可领取最高为当前等级对应的礼品</p>
+                    <p>2.每位用户可领取一份生日礼，仅一份</p>
+                    <p>3.除生日礼外，还可额外领取一份冬日礼</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<!-- <script type="text/javascript" src="../161019superyearv/js/jquery-1.8.1.min.js"></script> -->
+<script type="text/javascript" src="../161019superyearv/js/calcBaseRem.js"></script>
+</html>

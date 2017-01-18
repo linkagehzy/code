@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>兑换详情</title>
+    <meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <link href="{{url_for('static',filename='css/agent.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/mui.min.css')}}" rel="stylesheet">
+</head>
+<body class="b_f4f4f4">
+    <div class="m-det">
+        <img src="../static/images/agent-img1.jpg" alt="" />
+    </div>
+       <form method="POST" action="">
+
+           <div class="m-ex b_ff">
+               <div class ="m-ex-msg">
+                   <span class="u-txt-label">领取信息</span>
+               </div>
+               <ul class="m-center-box">
+                   <li>
+                       <span class="u-txt-labe姓名">姓名</span>
+                       {{ form.name(size = 40)}}
+                   </li>
+               </ul>
+
+           </div>
+            <div class="m-ex-bot">
+                <p class="m-act-tips">注：礼物仅于用户符合领取条件时可领取，且只可领取一件，请选择领取您最中意的礼物。</p>
+                <div class="m-ex-bn">
+                    <p class="tips" id="tip"></p>
+                    <input type="button" value="确认领取" class="u-submit-btn" id="submitBtn">
+                </div>
+            </div>
+       </form>
+</body>
+<script type="text/javascript" src="../161118agent/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../161019superyearv/js/calcBaseRem.js"></script>
+<script type="text/javascript" src="../161118agent/js/agent.js"></script>
+<script>
+    var backToApp =function (){
+        console.log('back');
+    }
+</script>
+</html>
