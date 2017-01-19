@@ -52,15 +52,49 @@
             <p class="m-act-tips">注：礼物仅于用户符合领取条件时可领取，且只可领取一件，请选择领取您最中意的礼物。</p>
             <div class="m-ex-bn">
                 <p class="tips" id="tip"></p>
-                <input type="submit" value="确认领取" class="u-submit-btn" id="submitBtn" >
+                <input type="button" value="确认领取" class="u-submit-btn" id="submitBtn" >
             </div>
         </div>
     </form>
 </body>
 
-<script>
-    var backToApp =function (){
-        console.log('back');
+<script type="text/javascript">
+    window.onload = function(){
+        var submitBtn = document.getElementById("submitBtn");
+        var form = document.getElementById("form");
+        submitBtn.onclick = function(){
+            var userName = document.getElementById("name");
+            var mobile = document.getElementById("tel");
+            var tip = document.getElementById("tip");
+            var email = document.getElementById("oidname");
+            var site = document.getElementById("add");
+             if(userName.value=='')
+             {
+                 tip.innerHTML = '请填写姓名';
+                 return false;
+             }
+            if(mobile.value=='')
+            {
+                tip.innerHTML = '请填写手机号';
+                return false;
+            }
+
+            if(site.value=='')
+            {
+                tip.innerHTML = '请填写地址';
+                return false;
+            }
+            if(email.value =='' || email.value.length != 6)
+            {
+                tip.innerHTML = '请填写6位邮编';
+                return false;
+            }
+            form.submit();
+        }
+    }
+    function backToApp()
+    {
+        window.BackToApp.goBackToApp();
     }
 </script>
 </html>
