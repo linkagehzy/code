@@ -16,15 +16,19 @@ from flask import request,flash,redirect
 def indexapp():
 	pageData = {'agentLeve':'S3',  #经纪人等级
 				  'position':'347,388,332',  #客户持仓
-				  'winterGift':[{'img':'../static/images/agent-img1.jpg',   #图片地址
+				  'winterGift':[{'id':'0',
+					  			 'img':'../static/images/agent-img1.jpg',   #图片地址
 								 'leve':'S2',                 #领取等级
 								 'giftDC':"leme蓝牙耳机水滴版",     #礼品描述
 								 'abled':0}],            #是否可以领取
-				'birthdayGift':[{'img':'../static/images/agent-img2.jpg',
+				'birthdayGift':[{
+								 'id':'1',
+								 'img':'../static/images/agent-img2.jpg',
 								 'leve':'S2',
 								 'giftDC':'罗技(Logitech)K810无线蓝牙炫光键盘',
 								 'abled':1},
-								{'img':'../static/images/agent-img3.jpg',
+								{'id':'2',
+								 'img':'../static/images/agent-img3.jpg',
 								 'leve':'S2',
 								 'giftDC':'小米无人机,探索触手可及的新视角',
 								 'abled':2}]}
@@ -36,7 +40,8 @@ def indexdet():
 	return render_template("indexdet.html")
 @app.route('/S2ward',methods=['GET','POST'])
 def S2ward():
-
+	id = request.values.get('id')
+	print id
 	form = SubmitForm()
 
 	if form.is_submitted():

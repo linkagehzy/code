@@ -53,7 +53,7 @@
                         {%if item.abled == 0%}
                         <a  class="b_cccccc">限{{item.leve}}用户</a>
                         {%elif item.abled == 1%}
-                        <a href="{{url_for("S2ward")}}" class="b_588bff">立即领取</a>
+                        <a href="{{url_for('S2ward',id = item.id)}}" class="b_588bff">立即领取</a>
                         {%else%}
                         <a  class="b_cccccc">已领取</a>
                         {%endif%}
@@ -94,7 +94,7 @@
                         {%if item.abled == 0%}
                         <a  class="b_cccccc">限生日当月</a>
                         {%elif item.abled == 1%}
-                        <a href="{{url_for("S2ward")}}" class="b_588bff">立即领取</a>
+                        <a href="{{url_for('S2ward',id = item.id)}}" class="b_588bff">立即领取</a>
                         {%else%}
                         <a  class="b_cccccc">已领取</a>
                         {%endif%}
@@ -136,5 +136,5 @@
     </div>
 </body>
 <!-- <script type="text/javascript" src="../161019superyearv/js/jquery-1.8.1.min.js"></script> -->
-<script type="text/javascript" src="../161019superyearv/js/calcBaseRem.js"></script>
+<!--<script type="text/javascript" src="../161019superyearv/js/calcBaseRem.js"></script>-->
 </html>
